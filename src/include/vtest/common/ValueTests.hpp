@@ -347,7 +347,16 @@ struct TestSuffixPrinter
         template<int I>                                                                   \
         auto GetParamValue() const                                                        \
         {                                                                                 \
-            return std::get<I>(GetParam());                                               \
+            using ParamType = decltype(g_##TEST##_Params)::value_type;                    \
+            if constexpr (::vtest::detail::IsTuple<ParamType>::value)                     \
+            {                                                                             \
+                return std::get<I>(GetParam());                                           \
+            }                                                                             \
+            else                                                                          \
+            {                                                                             \
+                static_assert(I == 0, "Single parameter test can only access index 0");   \
+                return GetParam();                                                        \
+            }                                                                             \
         }                                                                                 \
     };                                                                                    \
     _INSTANTIATE_TEST_SUITE_P(_, TEST, g_##TEST##_Params)
