@@ -11,7 +11,7 @@ set(TARGET_NAME vtest)
 # 下载地址：https://slproweb.com/products/Win32OpenSSL.html
 # 下载后找不到的建议升级一下 cmake 版本
 # 或使用 vcpkg 安装: vcpkg install openssl:x64-windows-static
-set(OPENSSL_ROOT_DIR "D:/Software/OpenSSL-Win64")
+# set(OPENSSL_ROOT_DIR "D:/Software/OpenSSL-Win64")
 set(OPENSSL_USE_STATIC_LIBS TRUE)
 find_package(OpenSSL COMPONENTS Crypto)
 
