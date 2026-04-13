@@ -17,7 +17,6 @@
 #include <tuple>
 #include <type_traits>
 
-
 namespace vtest {
 
 namespace detail {
@@ -295,12 +294,12 @@ auto MaybeExtractTuple(T t)
  */
 struct Default
 {
-    bool operator<(const Default &that) const
+    bool operator<(const Default &) const
     {
         return false;
     }
 
-    bool operator==(const Default &that) const
+    bool operator==(const Default &) const
     {
         return true;
     }

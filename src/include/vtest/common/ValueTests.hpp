@@ -20,7 +20,7 @@ namespace vtest {
  * @brief 字符串字面量包装类
  * 
  * 用于在编译期存储字符串字面量，可以作为模板参数使用。
- * 这是 C++20 之前实现字符串作为非类型模板参数的一种方法。
+ * 实现字符串作为非类型模板参数的一种方法, 需要 C++ 20。
  * 
  * @tparam N 字符串长度（包括结尾的 '\0'）
  */
@@ -180,7 +180,7 @@ private:
  * @param hash MD5 哈希对象
  * @param p Param 对象
  */
-template<StringLiteral NAME, class T, T... DEFAULT>
+template<StringLiteral NAME, class T, T... DEFAULT> // 需要 C++ 20
 void Update(vtest::HashMD5 &hash, const Param<NAME, T, DEFAULT...> &p)
 {
     Update(hash, static_cast<T>(p));
