@@ -303,12 +303,13 @@ struct TestSuffixPrinter
  * 3. 使用 ValuesIn 将参数传递给 Google Test
  * 4. 使用 TestSuffixPrinter 生成基于哈希的测试名称后缀
  */
-#define _INSTANTIATE_TEST_SUITE_P(                                                                                   \
-    GROUP, TEST,                                                                                                     \
-    ::testing::ValuesIn(                                                                                             \
-        UniqueSort(typename ::vtest::detail::NormalizeValueList<::vtest::ValueList<typename TEST::ParamType>>::type( \
-            __VA_ARGS__))),                                                                                          \
-    ::vtest::TestSuffixPrinter())
+#define _INSTANTIATE_TEST_SUITE_P(GROUP, TEST, ...)                                                           \
+    INSTANTIATE_TEST_SUITE_P(                                                                                 \
+        GROUP, TEST,                                                                                          \
+        ::testing::ValuesIn(UniqueSort(                                                                       \
+            typename ::vtest::detail::NormalizeValueList<::vtest::ValueList<typename TEST::ParamType>>::type( \
+                __VA_ARGS__))),                                                                               \
+        ::vtest::TestSuffixPrinter())
 
 /**
  * @brief 定义参数化测试套件的宏

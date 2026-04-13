@@ -11,10 +11,12 @@
 #include <gtest/gtest.h>
 
 #include <algorithm>
+#include <iomanip>
 #include <list>
 #include <stdexcept>
 #include <tuple>
 #include <type_traits>
+
 
 namespace vtest {
 
@@ -2441,12 +2443,6 @@ ValueList<TT...> operator-(const ValueList<TT...> &a, const ValueList<TT...> &b)
  */
 template<class T>
 ValueList<T> operator-(const ValueList<T> &a, const T &b)
-{
-    return Difference(a, b);
-}
-
-template<class T>
-ValueList<T> operator-(const T &a, const ValueList<T> &b)
 {
     return Difference(a, b);
 }
