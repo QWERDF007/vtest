@@ -360,6 +360,3 @@ struct TestSuffixPrinter
         }                                                                                 \
     };                                                                                    \
     _INSTANTIATE_TEST_SUITE_P(_, TEST, g_##TEST##_Params)
-
-// clang-format off
-// clang-format on

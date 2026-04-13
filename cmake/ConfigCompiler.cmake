@@ -27,7 +27,8 @@ if (MSVC)
     # set(C_WARNING_FLAGS "-Wall")
     # /EHa: 启用 C++ 异常处理和 SEH 异常（跨 DLL 异常传播所需）
     # /utf-8: 将源文件和执行字符集设置为 UTF-8
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHa /utf-8")
+    # /bigobj: 增加对象文件中可寻址节的数量
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHa /utf-8 /bigobj")
     set(C_WARNING_FLAGS "-W4")
     # set(CXX_WARNING_FLAGS "/permissive-")
 else ()
