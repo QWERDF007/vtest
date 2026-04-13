@@ -34,5 +34,5 @@ add_subdirectory(src)
 # 构建测试用例
 if(${PROJECT_NAME_UPPER}_BUILD_TESTS)
     enable_testing()
-    # add_subdirectory(tests)
+    add_subdirectory(tests)
 endif()
